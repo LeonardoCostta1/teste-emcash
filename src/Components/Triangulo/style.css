@@ -1,0 +1,81 @@
+.triangulo_wrapper {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.triangulo_wrapper .headline {
+  font-size: 3em;
+}
+
+.triangulo_wrapper .triangulo_container {
+  margin: 50px 0;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.triangulo_wrapper .triangulo_container input {
+  height: 50px;
+  margin-bottom: 10px;
+  width: calc(80% - 60px);
+  background: #222222;
+  border: none;
+  padding: 0 30px;
+  border-radius: 7px;
+  color: #fff;
+}
+
+.triangulo_wrapper .triangulo_container input::-webkit-input-placeholder {
+  text-transform: capitalize;
+}
+
+.triangulo_wrapper .triangulo_container input:-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+.triangulo_wrapper .triangulo_container input::-ms-input-placeholder {
+  text-transform: capitalize;
+}
+
+.triangulo_wrapper .triangulo_container input::placeholder {
+  text-transform: capitalize;
+}
+
+.triangulo_wrapper .triangulo_container button {
+  height: 50px;
+  width: 80%;
+}
+
+@media (min-width: 0px) and (max-width: 720px) {
+  .triangulo_wrapper {
+    text-align: center;
+  }
+  .triangulo_wrapper .triangulo_container {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
