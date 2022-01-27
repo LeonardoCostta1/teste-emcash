@@ -14,9 +14,9 @@ function Triangulo() {
     await fetch("http://18.219.90.227/api/triangulos", {
       method: "POST",
       body: JSON.stringify({
-        a: ladoA,
-        b: ladoB,
-        c: ladoC
+        a: {ladoA},
+        b: {ladoB},
+        c: {ladoC}
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"

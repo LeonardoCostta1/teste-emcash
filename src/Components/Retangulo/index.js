@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer, toast } from "react-toastify";
+import axios from 'axios'
 import "./style.css";
 
 function Retangulo() {
@@ -9,17 +9,29 @@ function Retangulo() {
   // const [error, setError] = useState("");
   const cadastrarRetangulo = async () => {
     if (!base || !altura) {
-      toast.warn("Favor preencher todos os campos!")
+      toast.warn("Favor preencher todos os campos!");
     } else {
-      await fetch("http://18.219.90.227/api/retangulos", {
-        method: "POST",
-        body: JSON.stringify({
-          base,
-          altura
+      // await fetch("http://18.219.90.227/api/retangulos", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     "base":parseInt(base),
+      //     "altura": parseInt(altura)
+      //   })
+      // })
+      //   .then((response) => response.json())
+      //   .then((json) => console.log(json));
+
+      await axios
+        .post("http://18.118.129.38/api/retangulos", {
+          "base":parseInt(base),
+          "altura": parseInt(altura)
         })
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
 
