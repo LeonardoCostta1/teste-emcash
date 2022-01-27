@@ -6,24 +6,21 @@ function Triangulo() {
   const [ladoA, setLadoA] = useState("");
   const [ladoB, setLadoB] = useState("");
   const [ladoC, setLadoC] = useState("");
+  const [datas, setData] = useState("");
 
   const cadastrarTriangulo = async () => {
     if (!ladoA || !ladoB || !ladoC) {
       toast.warn("Favor preencher todos os campos!");
+    }else{
+      const resquestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ "a": ladoA, "b": ladoB,"c":ladoC })
+      };
+     await fetch("http://18.118.129.38/api/triangulos", resquestOptions)
+        .then((response) => response.json)
+        .then((data) => setData(data));
     }
-    await fetch("http://18.219.90.227/api/triangulos", {
-      method: "POST",
-      body: JSON.stringify({
-        a: {ladoA},
-        b: {ladoB},
-        c: {ladoC}
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
   };
 
   return (
@@ -34,19 +31,19 @@ function Triangulo() {
         <input
           type="text"
           value={ladoA}
-          onChange={(e) => setLadoA(e.target.value)}
+          onChange={(e) => setLadoA(parseInt(e.target.value))}
           placeholder="digite o lado A"
         />
         <input
           type="text"
           value={ladoB}
-          onChange={(e) => setLadoB(e.target.value)}
+          onChange={(e) => setLadoB(parseInt(e.target.value))}
           placeholder="digite o lado B"
         />
         <input
           type="text"
           value={ladoC}
-          onChange={(e) => setLadoC(e.target.value)}
+          onChange={(e) => setLadoC(parseInt(e.target.value))}
           placeholder="digite o lado C"
         />
         <button onClick={() => cadastrarTriangulo()}>
